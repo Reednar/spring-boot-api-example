@@ -1,17 +1,15 @@
 package com.recipe.recipe.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "RECIPE")
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer", "handler"})
 public class Recipe {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Utilisation de GenerationType.IDENTITY pour la génération automatique de l'identifiant
     private Long id;
 
     @Column(name="name")
